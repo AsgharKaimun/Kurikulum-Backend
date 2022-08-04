@@ -1,8 +1,9 @@
 <?php
 
 /*
-    Variabel $nama dan $NAMA adalah dua variabel yang berbeda
-    Jangan salah memanggil Variabel karena bisa menyebabkan eror  
+    Variabel $nama dan $NAMA adalah dua variabel yang berbeda.
+    Huruf Besar(Kapital) dan Huruf Kecil akan dibedakan.
+    Jangan salah memanggil Variabel karena bisa menyebabkan eror.  
 */
 $nama = "Fathur \n"; 
 
