@@ -46,7 +46,7 @@ $TanpaBatas = [
     // Array 1
     "Name" => "StrawHatPirates",
     "Captain" => "Monkey_D_Luffy",
-    "Ships" => "GoingMerry-ThousandSunny",
+    "Ships" => "GoingMerry-ThousandSunny", 
     // Array 2
     "Crew" => [
         "Captain" => "Monkey_D_Luffy",
