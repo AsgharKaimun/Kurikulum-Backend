@@ -3,7 +3,7 @@
 // SOAL 1
 
 /*
-Operator (!=) akan menghasilkan true apabila data memiliki nilai yang berbeda dengan tipe data yg sama maupun berbeda
+Operator (!=) akan menghasilkan true apabila input memiliki nilai yang berbeda dengan tipe data yg sama maupun berbeda
               dan akan mengasilkan false apabila memiliki nilai yang sama dengan tipe data yg sama maupun berbeda
 Operator (!==) hanya akan menghasilkan false apabila input memiliki nilai dan tipe data yg sama      
 */  
