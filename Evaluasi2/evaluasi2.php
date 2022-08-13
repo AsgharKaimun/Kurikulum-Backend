@@ -14,7 +14,9 @@ echo "\n\n";
 
 echo "----SOAL 2----" .PHP_EOL;
 
-require 'VariableScope.php';
+require('VariableScope.php');
+
+echo "\n\n";
 
 echo "----SOAL 3----" .PHP_EOL;
 
