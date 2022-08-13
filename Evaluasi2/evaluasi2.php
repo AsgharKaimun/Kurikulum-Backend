@@ -18,18 +18,20 @@ require 'VariableScope.php';
 
 echo "----SOAL 3----" .PHP_EOL;
 
-echo substr("EVALUASI PEKAN KE 2",0,8). PHP_EOL;
-echo substr("EVALUASI PEKAN KE 2",9,5). PHP_EOL;
-echo substr("EVALUASI PEKAN KE 2",3,4). PHP_EOL;
+echo substr("EVALUASI PEKAN KE 2",0,8). PHP_EOL;// Indeks 0(E), Length 8(EVALUASI)
+echo substr("EVALUASI PEKAN KE 2",9,5). PHP_EOL;// Indeks 9(P), Length 5(PEKAN)
+echo substr("EVALUASI PEKAN KE 2",3,4). PHP_EOL;// Indeks 3(L), Length 4(LUAS)
 
 echo "\n\n";
 
 echo "----SOAL 4----" .PHP_EOL;
 
-// function ReturnValue($x, $y) {
-//     return
+function ReturnValue($x, $y) {
+    return $x*$y;
 
-// };
+};
+
+echo ReturnValue(5,5);
 
 echo "\n\n";
 
