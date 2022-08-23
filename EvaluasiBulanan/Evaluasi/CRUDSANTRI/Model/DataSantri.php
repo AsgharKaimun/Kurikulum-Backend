@@ -2,7 +2,7 @@
 
 
 // Saat Menjalankan Aplikasi, Data Masih Kosong
-// $dataSantri = array();
-$dataSantri = [];
+// $dataSantri = [];
+$dataSantri = array();
 
 ?>
