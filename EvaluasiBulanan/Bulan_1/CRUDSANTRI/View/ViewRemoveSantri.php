@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . "/../Helper/Input.php";
-require_once __DIR__ . "/../Model/DataSantri.php";
+// require_once __DIR__ . "/../Helper/Input.php";
+// require_once __DIR__ . "/../Model/DataSantri.php";
 
-require_once __DIR__ . "/../Controller/RemoveSantri.php";
-require_once __DIR__ . "/../Controller/ShowSantri.php";
+// require_once __DIR__ . "/../Controller/RemoveSantri.php";
+// require_once __DIR__ . "/../Controller/ShowSantri.php";
 
 function viewRemoveSantri() {
     

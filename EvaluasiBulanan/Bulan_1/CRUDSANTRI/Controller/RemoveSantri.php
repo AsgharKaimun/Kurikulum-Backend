@@ -8,12 +8,12 @@ function removeSantri($Data) {
 
         case $Data > 0 && $Data <= count($dataSantri) :
             while($Data < count($dataSantri)){
-            $dataSantri[$Data] = $dataSantri[$Data + 1];
-            $Data++;
+                $dataSantri[$Data] = $dataSantri[$Data + 1];
+                $Data++;
             }
             unset($dataSantri[count($dataSantri)]);
             break;
-            default :
+        default :
             echo "\n ! ! ! PILIHAN TIDAK DITEMUKAN ! ! ! \n" .PHP_EOL;
             return true;
         }
