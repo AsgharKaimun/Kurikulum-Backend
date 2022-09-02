@@ -211,9 +211,9 @@ class Lingkaran extends BangunDatar {
     {
         while(true)
         {
-            echo "=======================================" .PHP_EOL;
-            echo "|MENGHITUNG LUAS DAN KELILING SEGITIGA|" .PHP_EOL;
-            echo "=======================================" .PHP_EOL;
+            echo "========================================" .PHP_EOL;
+            echo "|MENGHITUNG LUAS DAN KELILING LINGKARAN|" .PHP_EOL;
+            echo "========================================" .PHP_EOL;
             echo "1. Menghitung Luas" .PHP_EOL;
             echo "2. Menghitung Keliling" .PHP_EOL;
             echo "3. Kembali" .PHP_EOL;
@@ -285,6 +285,7 @@ class Lingkaran extends BangunDatar {
     }
     
 }
+
 
 BangunDatar::MenuBangunDatar();
 
