@@ -4,7 +4,9 @@ $TWD = ["Rick", "Carl", "Judith", "Clementine"];// Index[0, 1, 2, 3]
 $SOD = [
     "Powerhouse" => "Marcus",
     "Cardio Run" => "Ed",
-    "EagleEye" => "Maya",
+    "EagleEye" => [
+        "Maya" => "Girl",
+    ]
 ];
 
 
@@ -15,9 +17,8 @@ foreach($TWD as $twd) {
 
 echo "\n";
 
-foreach($SOD as $key => $value) {
-    echo "The $key : $value \n";
-}
+
+
 
 
 

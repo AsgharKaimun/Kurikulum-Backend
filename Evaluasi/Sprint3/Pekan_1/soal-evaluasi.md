@@ -35,3 +35,7 @@
 ## Jangan mau hanya menjadi biasa-biasa saja dalam mengerjakan suatu hal, buatlah sesuatu dengan cara efisin, dan seefektif mungkin
 
 **KEJARLAH NILAI SEMPURNA**
+
+1. fgfg
+2. hjhj
+3. jjbjn
