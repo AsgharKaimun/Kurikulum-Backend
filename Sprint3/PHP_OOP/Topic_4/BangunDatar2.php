@@ -16,7 +16,7 @@ class BangunDatar {
             echo "3. Lingkaran" .PHP_EOL;
             echo "4. Exit" .PHP_EOL;
             echo "Pilih Bangun Datar Yang Akan Dihitung : ";
-    
+
             $Select = trim(fgets(STDIN));
             
             switch($Select)
@@ -76,25 +76,34 @@ class Segitiga extends BangunDatar {
     }
     private static function luasSegitiga()
     {
-        echo "Masukkan Nilai Alas : ";
-        self::$Alas = trim(fgets(STDIN));
-        echo "Masukkan Nilai Tinggi : ";
-        self::$Tinggi = trim(fgets(STDIN));
-        parent::$Luas = self::$Alas * self::$Tinggi;
-        echo PHP_EOL. "Luas Segitiga = " . parent::$Luas .PHP_EOL;
-        
         while(true)
         {
-            echo "Ingin Menghitung Lagi? (Y/N) :";
-            $Answer = strtoupper(trim(fgets(STDIN)));
-            switch($Answer)
+            echo "Masukkan Nilai Alas : ";
+            self::$Alas = (int)trim(fgets(STDIN));
+            echo "Masukkan Nilai Tinggi : ";
+            self::$Tinggi = (int)trim(fgets(STDIN));
+            
+            if(self::$Alas && self::$Tinggi  > 0)
             {
-                case "Y" :
-                    self::MenuSegitiga();
-                case "N" :
-                    exit;
-                default :
-                    echo "PILIH Y/N" .PHP_EOL;
+                parent::$Luas = self::$Alas * self::$Tinggi;
+                echo PHP_EOL. "Luas Segitiga = " . parent::$Luas .PHP_EOL;
+                
+                while(true)
+                {
+                    echo "Ingin Menghitung Lagi? (Y/N) :";
+                    $Answer = strtoupper(trim(fgets(STDIN)));
+                    switch($Answer)
+                    {
+                        case "Y" :
+                            self::MenuSegitiga();
+                        case "N" :
+                            exit;
+                        default :
+                            echo "PILIH Y/N" .PHP_EOL;
+                    }
+                }
+            }else {
+                echo "\n ! ! ! NILAI ALAS DAN TINGGI HARUS DIISI ANGKA ! ! ! \n" .PHP_EOL;
             }
         }
     }

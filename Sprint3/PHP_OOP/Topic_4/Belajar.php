@@ -35,6 +35,7 @@ class Motor {
     {
         Mobil::isiBensin();
         $motor = new Mobil();
+        $motor->tambahKecepatan();
     }
 }
 
