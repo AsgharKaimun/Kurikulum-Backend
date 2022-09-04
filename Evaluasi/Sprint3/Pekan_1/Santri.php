@@ -231,7 +231,7 @@ class HapusDataSantri extends Santri {
     private static function dataSantri($number)
     {
         echo "=======================" .PHP_EOL;
-        echo "|DAFTAR ID SANTRI BARU|" .PHP_EOL;
+        echo "|DAFTAR SANTRI BARU|" .PHP_EOL;
         echo "=======================" .PHP_EOL;
         
         foreach(parent::$id_santri as $key => $value)
@@ -302,7 +302,11 @@ class HapusDataSantri extends Santri {
     }
     private static function hapusData($select)
     {
-        unset(parent::$id_santri[$select]); 
+        for($i = $select; $i < count(parent::$id_santri); $i++)
+        {
+            parent::$id_santri[$i] = parent::$id_santri[$i + 1];
+        }
+        unset(parent::$id_santri[count(parent::$id_santri)]); 
         echo "\n >>> DATA TELAH DIHAPUS <<< \n";
     }
 }
@@ -329,6 +333,8 @@ class DetailDataSantri extends Santri {
                 $santri = new Santri();
             }elseif($select > 0 && $select <= count(parent::$id_santri)) {
                 self::dataSantri($select);
+            }else {
+                echo "\n ! ! ! PILIHAN TIDAK DITEMUKAN ! ! ! \n";
             }
         }
     }
@@ -356,7 +362,7 @@ class SeluruhDataSantri extends Santri {
                 echo "$key.Nama   : {$value['NAMA']}" .PHP_EOL;
                 echo "  Divisi : {$value['DIVISI']}" .PHP_EOL;
             }
-            echo "\n KETIK B UNTUK KEMBALI \n" .PHP_EOL;
+            echo "\n KETIK B UNTUK KEMBALI : ";
             $select = strtoupper(trim(fgets(STDIN)));
     
             switch($select)
