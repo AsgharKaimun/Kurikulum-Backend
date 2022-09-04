@@ -47,24 +47,103 @@ class Santri {
 }
 
 class TambahSantri extends Santri{
-    // public static $data_santri = [];
+    public static $data_santri = [];
 
     public function __construct()
     {
+        self::tambahNama();
+    }
+    public static function tambahNama()
+    {
+        echo "\n KETIK B UNTUK KEMBALI \n" .PHP_EOL;
         echo "Masukkan Nama Santri : ";
-        $data_santri['NAMA'] = strtoupper(trim(fgets(STDIN)));
-        echo "Masukkan Jenis Kelamin Santri : ";
-        $data_santri['JENIS KELAMIN'] = strtoupper(trim(fgets(STDIN)));
-        echo "Masukkan Usia Santri : ";
-        $data_santri['USIA'] = strtoupper(trim(fgets(STDIN)));
+        self::$data_santri['NAMA'] = strtoupper(trim(fgets(STDIN)));
+        if(self::$data_santri['NAMA'] == "B")
+        {
+            $santri = new Santri();
+        } else 
+        {    
+            echo "\n >>> NAMA TELAH DITAMBAHKAN <<< \n";
+            self::tambahJenisKelamin();
+        }
+    }
+    public static function tambahJenisKelamin()
+    {
+        while(true)
+        {
+            echo "\n KETIK B UNTUK KEMBALI \n" .PHP_EOL;
+            echo "Masukkan Jenis Kelamin Santri : ";
+            self::$data_santri['JENIS KELAMIN'] = strtoupper(trim(fgets(STDIN)));
+            if(self::$data_santri['JENIS KELAMIN'] == "B")
+            {
+                $santri = new Santri();
+            } elseif(self::$data_santri['JENIS KELAMIN'] == 'PEREMPUAN')
+            {    
+                echo "\n >>> JENIS KELAMIN TELAH DITAMBAHKAN <<< \n";
+            } elseif(self::$data_santri['JENIS KELAMIN'] == 'LAKILAKI')
+            {
+                echo "\n >>> JENIS KELAMIN TELAH DITAMBAHKAN <<< \n";
+                self::tambahUsia();
+                break;
+            } else 
+            {
+                echo "\n PILIH JENIS KELAMIN (LAKILAKI / PEREMPUAN) \n";
+            }
+        }
+    }
+    public static function tambahUsia()
+    {
+        while(true)
+        {
+            echo "\n KETIK 1 UNTUK KEMBALI \n" .PHP_EOL;
+            echo "Masukkan Usia Santri : ";
+            self::$data_santri['USIA'] = (int)trim(fgets(STDIN));
+            if(self::$data_santri['USIA'] == 1)
+            {
+                $santri = new Santri();
+            } elseif(self::$data_santri['USIA'] > 0)
+            {
+                echo "\n >>> USIA TELAH DITAMBAHKAN <<< \n";
+                self::tambahAlamat();
+                break;
+            } else 
+            {
+                echo "\n USIA HARUS BERUPA ANGKA \n";
+            }
+        }
+    }
+    public static function tambahAlamat()
+    {
+        echo "\n KETIK B UNTUK KEMBALI \n" .PHP_EOL;
         echo "Masukkan Alamat Santri : ";
-        $data_santri['ALAMAT'] = strtoupper(trim(fgets(STDIN)));
+        self::$data_santri['ALAMAT'] = strtoupper(trim(fgets(STDIN)));
+        if(self::$data_santri['ALAMAT'] == "B")
+        {
+            $santri = new Santri();
+        } else 
+        {    
+            echo "\n >>> ALAMAT TELAH DITAMBAHKAN <<< \n";
+            self::tambahDivisi();
+        }
+    }
+    public static function tambahDivisi()
+    {
+        echo "\n KETIK B UNTUK KEMBALI \n" .PHP_EOL;
         echo "Masukkan Divisi Santri : ";
-        $data_santri['DIVISI'] = strtoupper(trim(fgets(STDIN)));
-
+        self::$data_santri['DIVISI'] = strtoupper(trim(fgets(STDIN)));
+        if(self::$data_santri['DIVISI'] == "B")
+        {
+            $santri = new Santri();
+        } else 
+        {    
+            echo "\n >>> DIVISI TELAH DITAMBAHKAN <<< \n";
+            self::tambahData();
+        } 
+    }
+    public static function tambahData()
+    {
         $number = count(parent::$id_santri) + 1;
-        parent::$id_santri[$number] = $data_santri;
-
+        parent::$id_santri[$number] = self::$data_santri;
         echo "\n >>> DATA TELAH DITAMBAHKAN <<< \n";
     }
 }
@@ -113,42 +192,51 @@ class UbahDataSantri extends Santri {
     }
     private static function dataSantri($number)
     {
-        echo "=======================" .PHP_EOL;
-        echo "|DAFTAR ID SANTRI BARU|" .PHP_EOL;
-        echo "=======================" .PHP_EOL;
-        
-        foreach(parent::$id_santri as $key => $value)
+        while(true)
         {
-            echo "$key. " . $value['NAMA'] .PHP_EOL;
-        }
-    
-        echo "\n KETIK B UNTUK KEMBALI \n" .PHP_EOL;
-        echo "Pilih ID : ";
-        $select = strtoupper(trim(fgets(STDIN)));
-    
-        switch($number)
+            echo "=======================" .PHP_EOL;
+            echo "|DAFTAR SANTRI BARU|" .PHP_EOL;
+            echo "=======================" .PHP_EOL;
+            
+            foreach(parent::$id_santri as $key => $value)
             {
-                case "1" :
-                    self::ubahNama($select);
-                    break;
-                case "2" :
-                    self::ubahJenisKelamin($select);
-                    break;
-                case "3" :
-                    self::ubahUsia($select);
-                    break;
-                case "4" :
-                    self::ubahAlamat($select);
-                    break;
-                case "5" :
-                    self::ubahDivisi($select);
-                    break;
-                case "B" :
-                    $santri = new Santri();
-                    break;
-                default :
-                    echo "\n ! ! ! PILIHAN TIDAK DITEMUKAN ! ! ! \n" .PHP_EOL;
-            }    
+                echo "$key. " . $value['NAMA'] .PHP_EOL;
+            }
+        
+            echo "\n KETIK B UNTUK KEMBALI \n" .PHP_EOL;
+            echo "Pilih ID : ";
+            
+            $select = strtoupper(trim(fgets(STDIN)));
+            if($select > 0 && $select <= count(parent::$id_santri))
+            {
+                switch($number)
+                {
+                    case "1" :
+                        self::ubahNama($select);
+                        break;
+                    case "2" :
+                        self::ubahJenisKelamin($select);
+                        break;
+                    case "3" :
+                        self::ubahUsia($select);
+                        break;
+                    case "4" :
+                        self::ubahAlamat($select);
+                        break;
+                    case "5" :
+                        self::ubahDivisi($select);
+                        break;
+                    default :
+                        echo "\n ! ! ! PILIHAN TIDAK DITEMUKAN ! ! ! \n" .PHP_EOL;
+                }    
+            } elseif($select == "B")
+            {
+                $santri = new Santri();
+            } else
+            {
+                echo "\n ! ! ! PILIHAN TIDAK DITEMUKAN ! ! ! \n" .PHP_EOL;
+            }
+        }
     }
     private static function ubahNama($select)
     {
@@ -230,45 +318,53 @@ class HapusDataSantri extends Santri {
     }
     private static function dataSantri($number)
     {
-        echo "=======================" .PHP_EOL;
-        echo "|DAFTAR SANTRI BARU|" .PHP_EOL;
-        echo "=======================" .PHP_EOL;
-        
-        foreach(parent::$id_santri as $key => $value)
+        while(true)
         {
-            echo "$key. " . $value['NAMA'] .PHP_EOL;
-        }
-
-        echo "\n KETIK B UNTUK KEMBALI \n" .PHP_EOL;
-        echo "Pilih ID : ";
-        $select = strtoupper(trim(fgets(STDIN)));
-
-        switch($number)
+            echo "=======================" .PHP_EOL;
+            echo "|DAFTAR SANTRI BARU|" .PHP_EOL;
+            echo "=======================" .PHP_EOL;
+            
+            foreach(parent::$id_santri as $key => $value)
             {
-                case "1" :
-                    self::hapusNama($select);
-                    break;
-                case "2" :
-                    self::hapusJenisKelamin($select);
-                    break;
-                case "3" :
-                    self::hapusUsia($select);
-                    break;
-                case "4" :
-                    self::hapusAlamat($select);
-                    break;
-                case "5" :
-                    self::hapusDivisi($select);
-                    break;
-                case "6" :
-                    self::hapusData($select);
-                    break;
-                case "B" :
-                    $santri = new Santri();
-                    break;
-                default :
-                    echo "\n ! ! ! PILIHAN TIDAK DITEMUKAN ! ! ! \n" .PHP_EOL;
+                echo "$key. " . $value['NAMA'] .PHP_EOL;
             }
+    
+            echo "\n KETIK B UNTUK KEMBALI \n" .PHP_EOL;
+            echo "Pilih ID : ";
+            $select = strtoupper(trim(fgets(STDIN)));
+            if($select > 0 && $select <= count(parent::$id_santri))
+            {
+                switch($number)
+                {
+                    case "1" :
+                        self::hapusNama($select);
+                        break;
+                    case "2" :
+                        self::hapusJenisKelamin($select);
+                        break;
+                    case "3" :
+                        self::hapusUsia($select);
+                        break;
+                    case "4" :
+                        self::hapusAlamat($select);
+                        break;
+                    case "5" :
+                        self::hapusDivisi($select);
+                        break;
+                    case "6" :
+                        self::hapusData($select);
+                        break;
+                    default :
+                        echo "\n ! ! ! PILIHAN TIDAK DITEMUKAN ! ! ! \n" .PHP_EOL;
+                }
+            } elseif($select == "B")
+            {
+                $santri = new Santri();
+            } else
+            {
+                echo "\n ! ! ! PILIHAN TIDAK DITEMUKAN ! ! ! \n" .PHP_EOL;
+            }
+        }
     }
     private static function hapusNama($select)
     {
@@ -377,6 +473,6 @@ class SeluruhDataSantri extends Santri {
     }
 }
 
-$Santri = new Santri();
+$santri = new Santri();
 
 ?>
