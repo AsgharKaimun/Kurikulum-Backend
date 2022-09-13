@@ -21,9 +21,9 @@ class User {
         $query = "SELECT users.id,users.name,users.email,users.password,roles.role FROM users INNER JOIN roles ON roles.id = users.role_id";
         $index = $this->db->prepare($query);
         $index->execute();
-        $data = $index->fetchAll(PDO::FETCH_ASSOC);
+        $this->data = $index->fetchAll(PDO::FETCH_ASSOC);
        
-        foreach ($data as $user) {
+        foreach ($this->data as $user) {
             echo "id_users : {$user['id']} \n";
             echo "Nama : {$user['name']} \n";
             echo "Email : {$user['email']} \n";
@@ -60,6 +60,7 @@ class User {
     public function edit() {
         // Edit ini untuk tampilan mengubah data
         $this->index();
+        echo count($this->data) .PHP_EOL;
         echo "Pilih Id Yang Akan Diubah : ";
         $id = trim(fgets(STDIN));
         echo PHP_EOL;
@@ -131,7 +132,10 @@ class User {
 
 
 $pdo = new User();
-$pdo->destroy();
+$pdo->store();
+// $pdo->index();
+// $pdo->edit();
+// $pdo->destroy();
 
 
 ?>
